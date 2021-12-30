@@ -1,0 +1,53 @@
+import React from "react";
+import PropTypes from "prop-types";
+import {TextInput, StyleSheet, View} from "react-native";
+
+const Input = (props) => (
+    <View style={style.container}>
+        <View style={style.containerSmall}/>
+        <TextInput
+            type={props.type}
+            placeholder={props.placeholder}
+            value={props.value}
+            onChangeText={props.onChange}
+            style={style.input}
+        />
+    </View>
+);
+
+const style =  StyleSheet.create({
+    container: {
+        height: 44,
+        width: "40%",
+        border: "1px solid #949090 ",
+        borderRadius: 8,
+        flexDirection: "row"
+    },
+    containerSmall: {
+        margin: 17,
+        width: 10,
+        height: 10,
+        backgroundColor: "#000000"
+    },
+    input: {
+        fontSize: 12,
+        padding: 5,
+        border: "none"
+    },
+})
+
+Input.propTypes = {
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+};
+
+Input.defaultProps = {
+    placeholder: "",
+    type: "text",
+    value: "",
+    onChange: () => {},
+};
+
+export default Input;
