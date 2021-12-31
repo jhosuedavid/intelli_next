@@ -1,13 +1,10 @@
 import React from "react";
 import { View, StyleSheet} from "react-native";
 
-const Br = ()=> (
-    <View style={Style.br}/>
-)
-
+const Br = ()=> (<View style={Style.br}/>);
 
 const Style = StyleSheet.create({
-    br:{
+    br: {
         padding: 8
     },
 });

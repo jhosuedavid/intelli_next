@@ -13,6 +13,7 @@ export const login = (data) => async (dispatch) =>
             data,
         },
         onComplete: (response) => {
+            console.log(response);
             const {user, token} = response.data;
             dispatch(
                 setUser({

@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 
 import Login from "../scenes/auth/login";
-import Register from "../scenes/auth/register";
 import Dashboard from "../scenes/logged/dashboard";
 import Devices from "../scenes/logged/devices";
 
@@ -16,9 +15,6 @@ const Navigation = () => (
             <Route
                 path="/login"
                 element={<Login/>}
-            />
-            <Route path="/register"
-                   element={<Register/>}
             />
             <Route
                 path="/dashboard"

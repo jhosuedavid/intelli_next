@@ -27,7 +27,6 @@ const api = ({dispatch, getState}) => (next) => async (action) => {
     } : preConfig;
 
     try {
-        console.log('aqui::: ', config);
         dispatch(onStart());
         const response = await axios(config);
         onComplete(response);
