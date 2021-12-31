@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import {StyleSheet, View} from "react-native";
 
 import useLogin from "../../../hooks/useLogin";
 import Input from "../../../components/commons/input";
 import Button from "../../../components/commons/button";
 import Br from "../../../components/commons/br";
+import {login} from "../../../state/ducks/auth/actions";
 
-const LoginHoc = () => {
-    const hook = useLogin();
+const LoginHoc = (props) => {
+    const hook = useLogin(props);
     return <Login {...hook} />;
 };
 
@@ -71,6 +73,17 @@ const style = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
     },
-})
+});
 
-export default LoginHoc;
+const mapStateToProps = (state) => ({
+    ...state.auth,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    login: (payload) => dispatch(login(payload)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(LoginHoc);

@@ -1,8 +1,15 @@
-import {useState, useMemo, useCallback} from 'react';
+import {useState, useMemo, useCallback, useEffect} from 'react';
 
-const useLogin = () => {
+const useLogin = (props) => {
+    const {login = () => {}, user = {}} = props;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+       if (user['token']) {
+       //   window.location.href = '/dashboard';
+       }
+    }, [user]);
 
     const changeEmail = (value) => {
         setEmail(value);
@@ -17,8 +24,8 @@ const useLogin = () => {
     }, [email, password]);
 
     const signIn = useCallback(() => {
-        // console.log(email);
-    }, [email, password]);
+       login({email, password})
+    }, [login, email, password]);
 
     return {
         email,
