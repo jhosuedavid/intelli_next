@@ -1,13 +1,22 @@
 import axios from 'axios';
 
 import {authTypes} from '../ducks/auth';
+import {superHeroTypes} from '../ducks/superHero';
+import {API_URL, SUPER_HERO_API_URL} from "../../config";
 
 const api = ({dispatch, getState}) => (next) => async (action) => {
-    const types = [authTypes.API_CALL];
+    const types = [
+        authTypes.API_CALL,
+        superHeroTypes.API_CALL,
+    ];
 
     if (!types.includes(action.type)) {
         return next(action);
     }
+
+    axios.defaults.baseURL = action.type === authTypes.API_CALL ?
+        API_URL :
+        SUPER_HERO_API_URL;
 
     const {
         preConfig = {},
@@ -17,12 +26,15 @@ const api = ({dispatch, getState}) => (next) => async (action) => {
         onComplete = () => {},
     } = action.payload;
 
-    const {auth: {user: {token}}} = getState();
-
-    const config = authorization ? {
+    const config = action.type === authTypes.API_CALL && authorization ? {
         ...preConfig,
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${
+                getState()
+                    .auth
+                    .user
+                    .token
+            }`,
         },
     } : preConfig;
 

@@ -2,18 +2,16 @@ import {useEffect, useState} from 'react';
 
 const useDevices = (props) => {
     const {getDevices = () => {}, devices = []} = props;
-    const [limit, setLimit] = useState(1);
+    const [limit, setLimit] = useState(5);
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState('');
 
     useEffect(() => {
         let isFetch = true;
 
-        (() => {
-            try {
-                getDevices(limit, page, search);
-            } catch (error) {}
-        })();
+        if (isFetch) {
+            getDevices(limit, page, search);
+        }
 
         return () => {
             isFetch = false;
@@ -32,6 +30,10 @@ const useDevices = (props) => {
         setSearch(value);
     };
 
+    const increaseLimit = () => {
+        setLimit(limit + 2);
+    };
+
     return {
         devices,
         limit,
@@ -40,6 +42,7 @@ const useDevices = (props) => {
         changeLimit,
         changePage,
         changeSearch,
+        increaseLimit,
     };
 };
 

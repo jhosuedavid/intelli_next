@@ -13,3 +13,15 @@ export const ENDPOINTS = {
     },
 };
 
+export const SUPER_HERO_ENDPOINTS = {
+    heroes: {
+        get: {
+            url: '/:id',
+            method: 'get',
+        },
+        work: {
+            url: '/:id/work',
+            method: 'get',
+        },
+    },
+};

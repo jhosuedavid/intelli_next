@@ -8,6 +8,7 @@ import {
 import Login from "../scenes/auth/login";
 import Dashboard from "../scenes/logged/dashboard";
 import Devices from "../scenes/logged/devices";
+import SuperHero from "../scenes/logged/superHero";
 
 const Navigation = () => (
     <Router>
@@ -23,6 +24,10 @@ const Navigation = () => (
             <Route
                 path="/devices"
                 element={<Devices/>}
+            />
+            <Route
+                path="/superhero"
+                element={<SuperHero/>}
             />
         </Routes>
     </Router>

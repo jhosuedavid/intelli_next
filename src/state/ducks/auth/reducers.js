@@ -1,5 +1,4 @@
 import types from './types';
-import initialState from '../../initialState';
 
 const auth = (state = {}, action) => {
     switch (action.type) {
@@ -10,6 +9,12 @@ const auth = (state = {}, action) => {
                     ...state.user,
                     ...action.payload,
                 },
+            }
+        }
+        case types.SET_ERROR: {
+            return {
+                ...state,
+                error: action.payload,
             }
         }
         default: {

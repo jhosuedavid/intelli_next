@@ -5,6 +5,7 @@ import {AUTH_ENDPOINTS} from '../../../config';
 
 export const apiCall = createAction(types.API_CALL);
 export const setUser = createAction(types.LOGIN);
+export const setError = createAction(types.SET_ERROR)
 
 export const login = (data) => async (dispatch) =>
     dispatch(apiCall({
@@ -13,7 +14,6 @@ export const login = (data) => async (dispatch) =>
             data,
         },
         onComplete: (response) => {
-            console.log(response);
             const {user, token} = response.data;
             dispatch(
                 setUser({
@@ -21,6 +21,13 @@ export const login = (data) => async (dispatch) =>
                     token,
                 })
             );
+        },
+        onEnd: (error = null) => {
+            if (error) {
+                dispatch(
+                    setError(error.response.data.msg)
+                );
+            }
         },
     }));
 

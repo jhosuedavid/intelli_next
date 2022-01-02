@@ -8,14 +8,23 @@ const DashboardHoc = (props) => {
 };
 
 const Dashboard = () => (
-    <View>
-        <Text> hola como estas</Text>
+    <View style={style.container}>
+        <Text style={style.dashboard}> Bienvenidos </Text>
     </View>
 );
 
 const style = StyleSheet.create({
+    container:{
+        justifyContent: "center",
+        alignItems: "center"
+    },
     dashboard: {
-
+        fontSize: 50,
+        color: "#ffffff",
+        fontWeight: "bold",
+        textShadowColor: 'rgb(45,204,125)',
+        textShadowOffset: {width: -3, height: 1},
+        textShadowRadius: 8
     }
 });
 

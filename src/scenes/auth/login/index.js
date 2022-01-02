@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {StyleSheet, View} from "react-native";
+import {StyleSheet, View, Text} from "react-native";
 
 import useLogin from "../../../hooks/useLogin";
 import Input from "../../../components/commons/input";
@@ -16,6 +16,11 @@ const LoginHoc = (props) => {
 
 const Login = (props) => (
     <View style={style.containerFather}>
+        {props.error && (
+            <View style={style.containerError} >
+                <Text style={style.errors}>Error: {props.error}</Text>
+            </View>
+        )}
         <View style={style.container}>
             <Input
                 placeholder="Ingrese Correo"
@@ -73,6 +78,13 @@ const style = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
     },
+    containerError:{
+      padding:10,
+    },
+    errors:{
+    color: "#f00",
+        fontSize: 20,
+    }
 });
 
 const mapStateToProps = (state) => ({

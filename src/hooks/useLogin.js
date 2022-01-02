@@ -1,7 +1,7 @@
 import {useState, useMemo, useCallback, useEffect} from 'react';
 
 const useLogin = (props) => {
-    const {login = () => {}, user = {}} = props;
+    const {login = () => {}, user = {}, error = ''} = props;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,6 +30,7 @@ const useLogin = (props) => {
     return {
         email,
         password,
+        error,
         isValidForm,
         changeEmail,
         changePassword,
