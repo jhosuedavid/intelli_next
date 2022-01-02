@@ -7,7 +7,7 @@ import useLogin from "../../../hooks/useLogin";
 import Input from "../../../components/commons/input";
 import Button from "../../../components/commons/button";
 import Br from "../../../components/commons/br";
-import {login} from "../../../state/ducks/auth/actions";
+import {login, cleanError} from "../../../state/ducks/auth/actions";
 
 const LoginHoc = (props) => {
     const hook = useLogin(props);
@@ -93,6 +93,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     login: (payload) => dispatch(login(payload)),
+    cleanError: () => dispatch(cleanError()),
 });
 
 export default connect(

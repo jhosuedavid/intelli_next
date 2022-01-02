@@ -1,7 +1,12 @@
 import {useState, useMemo, useCallback, useEffect} from 'react';
 
 const useLogin = (props) => {
-    const {login = () => {}, user = {}, error = ''} = props;
+    const {
+        login = () => {},
+        user = {},
+        error = '',
+        cleanError = () => {},
+    } = props;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -10,6 +15,12 @@ const useLogin = (props) => {
           //window.location.href = '/devices';
        }
     }, [user]);
+
+    useEffect(() => {
+        if (error) {
+            cleanError();
+        }
+    }, [email, setPassword]);
 
     const changeEmail = (value) => {
         setEmail(value);

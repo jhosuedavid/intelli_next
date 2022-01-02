@@ -17,6 +17,12 @@ const auth = (state = {}, action) => {
                 error: action.payload,
             }
         }
+        case types.CLEAN_ERROR: {
+            return {
+                ...state,
+                error: '',
+            }
+        }
         default: {
             return state;
         }
