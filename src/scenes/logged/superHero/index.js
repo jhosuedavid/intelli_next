@@ -1,27 +1,24 @@
-import React from "react";
-import {connect} from "react-redux";
-import {Text, View, StyleSheet} from "react-native";
+import React from 'react';
+import {connect} from 'react-redux';
+import {Text, View, StyleSheet} from 'react-native';
 
-import useSuperHero from "../../../hooks/useSuperHero";
-import {getSuperHeroes} from "../../../state/ducks/superHero/actions";
-import Modal from "../../../components/commons/modal";
-import useModal from "../../../hooks/useModal";
-import Button from "../../../components/commons/button";
-import Image from "../../../components/commons/image";
-import Br from "../../../components/commons/br";
+import useSuperHero from '../../../hooks/useSuperHero';
+import Modal from '../../../components/commons/modal';
+import useModal from '../../../hooks/useModal';
+import Button from '../../../components/commons/button';
+import Image from '../../../components/commons/image';
+import Br from '../../../components/commons/br';
+import {getSuperHeroes} from '../../../state/ducks/superHero/actions';
 
 const SuperHeroHoc = (props) => {
     const hook = useSuperHero(props);
     const modalHook = useModal();
-    console.log(hook);
     return <SuperHero {...hook} {...modalHook} />;
 };
 
 const SuperHero = (props) => (
     <>
-        <Modal
-            style={style.containerFather}
-                isVisible={props.isVisible}>
+        <Modal isVisible={props.isVisible}>
             <View style={style.container}>
                 <Text style={style.text}> Estadisticas de poder:</Text> <Br/>
                 <Text style={style.text}> Combate: {props.hero.powerstats.combat}</Text>
@@ -54,31 +51,24 @@ const SuperHero = (props) => (
     </>
 );
 
-const mapStateToProps = (state) => {
-    console.log('STATE: ', state);
-    return ({
-        ...state.superHero,
-    });
-}
+const mapStateToProps = (state) => ({
+    ...state.superHero,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     getSuperHeroes: (superHeroId) => dispatch(getSuperHeroes(superHeroId)),
 });
 
 const style = StyleSheet.create({
-    containerFather:{
-
-
-    },
-  container:{
-    backgroundColor:'#97ffc4',
-      borderRadius: 12,
-      width: 180,
-      height: 200,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginLeft: "42%",
-      marginTop: "20%",
+    container:{
+        backgroundColor:'#97ffc4',
+        borderRadius: 12,
+        width: 180,
+        height: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: "42%",
+        marginTop: "20%",
     },
     containerChildren: {
         backgroundColor: '#97ffc4',
@@ -93,19 +83,16 @@ const style = StyleSheet.create({
         textAlign: 'center',
     },
     text: {
-      fontWeight: "bold"
+        fontWeight: "bold",
     },
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-
     },
     image: {
         width: 120,
         height: 120,
-
-    }
-
+    },
 });
 
 export default connect(

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {TouchableOpacity, Text, StyleSheet} from "react-native";
+import React from 'react';
+import {string, bool, func} from 'prop-types';
+import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 import {Color} from '../../../resources';
 
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
 });
 
 Button.propTypes = {
-    text: PropTypes.string,
-    isActive: PropTypes.bool,
-    onClick: PropTypes.func,
+    text: string,
+    isActive: bool,
+    onClick: func,
 };
 
 Button.defaultProps = {

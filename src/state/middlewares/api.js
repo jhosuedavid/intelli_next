@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {authTypes} from '../ducks/auth';
 import {superHeroTypes} from '../ducks/superHero';
-import {API_URL, SUPER_HERO_API_URL} from "../../config";
+import {API_URL, SUPER_HERO_API_URL} from '../../config';
 
 const api = ({dispatch, getState}) => (next) => async (action) => {
     const types = [

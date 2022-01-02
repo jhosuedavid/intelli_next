@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import {ENDPOINTS, SUPER_HERO_ENDPOINTS} from './constants';
 import {ENV, VERSION, API, SUPER_HERO} from './env';
 

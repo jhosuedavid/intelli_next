@@ -1,36 +1,29 @@
-import React from "react";
-import {connect} from "react-redux";
-import {Text, StyleSheet, View} from "react-native";
+import React from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 
-const DashboardHoc = (props) => {
-    console.log('Props: ', props);
-    return <Dashboard />;
-};
+import {Color} from '../../../resources';
 
 const Dashboard = () => (
     <View style={style.container}>
-        <Text style={style.dashboard}> Bienvenidos </Text>
+        <Text style={style.dashboard}>
+            Bienvenidos
+        </Text>
     </View>
 );
 
 const style = StyleSheet.create({
     container:{
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     dashboard: {
         fontSize: 50,
-        color: "#ffffff",
+        color: Color.white,
         fontWeight: "bold",
-        textShadowColor: 'rgb(45,204,125)',
+        textShadowColor: Color.green,
         textShadowOffset: {width: -3, height: 1},
-        textShadowRadius: 8
-    }
+        textShadowRadius: 8,
+    },
 });
 
-const mapStateToProps = (state) => ({
-    ...state.auth,
-    ...state.devices,
-});
-
-export default connect(mapStateToProps)(DashboardHoc);
+export default Dashboard;

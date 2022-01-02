@@ -1,4 +1,4 @@
-import { useState} from "react";
+import {useState} from 'react';
 
 const  useModal = () => {
     const [isVisible, setVisible] = useState(false);
@@ -8,7 +8,6 @@ const  useModal = () => {
     };
 
     const showModal = () => {
-        console.log('Show modal');
         setVisible(true);
     };
 

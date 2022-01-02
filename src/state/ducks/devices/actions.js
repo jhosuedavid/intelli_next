@@ -22,7 +22,6 @@ export const getDevices = (limit, offset, search) => async (dispatch) =>
                     count,
                 })
             );
-            console.log('Response: ', response);
         },
     }));
 

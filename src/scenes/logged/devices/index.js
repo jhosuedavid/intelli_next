@@ -1,17 +1,17 @@
-import React from "react";
-import {connect} from "react-redux";
-import {Text, StyleSheet, View} from "react-native";
+import React from 'react';
+import {connect} from 'react-redux';
+import {Text, StyleSheet, View} from 'react-native';
 
-import Input from "../../../components/commons/input";
-import useDevices from "../../../hooks/useDevices";
-import Image from "../../../components/commons/image";
+import Input from '../../../components/commons/input';
+import useDevices from '../../../hooks/useDevices';
+import Image from '../../../components/commons/image';
 import Button from '../../../components/commons/button';
-import {getDevices} from "../../../state/ducks/devices/actions";
-import Br from "../../../components/commons/br";
+import Br from '../../../components/commons/br';
+import {Color} from '../../../resources';
+import {getDevices} from '../../../state/ducks/devices/actions';
 
 const DevicesHoc = (props) => {
     const hook = useDevices(props);
-    console.log('Hooks: ', hook);
     return <Devices {...hook} />;
 };
 
@@ -75,26 +75,26 @@ const style = StyleSheet.create({
         width: 400,
         height: 200,
         margin: 10,
-        backgroundColor: "#97ffc4",
+        backgroundColor: Color.green,
         borderRadius: 10,
     },
     textTitule: {
         fontSize: 25,
-        color: '#ffffff',
+        color: Color.white,
         fontWeight: 'bold',
-        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowColor: Color.black,
         textShadowOffset: {width: -2, height: 2},
         textShadowRadius: 6,
         paddingBottom: 10,
     },
     image: {
         width: 150,
-        height: 200
+        height: 200,
     },
     input: {
         alignItems: 'center',
         marginTop: 20,
-    }
+    },
 });
 
 const mapStateToProps = (state) => ({

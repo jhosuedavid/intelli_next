@@ -1,13 +1,12 @@
-import {useEffect}from 'react';
+import {useEffect} from 'react';
 
 const useSuperHero = (props) => {
-    const {getSuperHeroes = (superHeroId) => {}, hero} = props;
+    const {getSuperHeroes = () => {}, hero} = props;
 
     useEffect(() => {
         let isFetch = true;
 
         if (isFetch) {
-            console.log('Hero: ', 1)
             getSuperHeroes(1);
         }
 

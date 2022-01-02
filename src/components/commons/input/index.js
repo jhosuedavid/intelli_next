@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {TextInput, StyleSheet, View} from "react-native";
+import React from 'react';
+import {string, func} from 'prop-types';
+import {TextInput, StyleSheet, View} from 'react-native';
 
 const Input = (props) => (
     <View style={style.container}>
@@ -37,10 +37,10 @@ const style =  StyleSheet.create({
 })
 
 Input.propTypes = {
-    placeholder: PropTypes.string,
-    type: PropTypes.string,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
+    placeholder: string,
+    type: string,
+    value: string,
+    onChange: func,
 };
 
 Input.defaultProps = {

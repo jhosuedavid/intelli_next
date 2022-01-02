@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
     BrowserRouter as Router,
     Routes,
     Route
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import Login from "../scenes/auth/login";
-import Dashboard from "../scenes/logged/dashboard";
-import Devices from "../scenes/logged/devices";
-import SuperHero from "../scenes/logged/superHero";
+import Login from '../scenes/auth/login';
+import Dashboard from '../scenes/logged/dashboard';
+import Devices from '../scenes/logged/devices';
+import SuperHero from '../scenes/logged/superHero';
 
 const Navigation = () => (
     <Router>

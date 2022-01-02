@@ -1,13 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {StyleSheet, View, Text} from "react-native";
+import React from 'react';
+import {connect} from 'react-redux';
+import {string, bool, func} from 'prop-types';
+import {StyleSheet, View, Text} from 'react-native';
 
-import useLogin from "../../../hooks/useLogin";
-import Input from "../../../components/commons/input";
-import Button from "../../../components/commons/button";
-import Br from "../../../components/commons/br";
-import {login, cleanError} from "../../../state/ducks/auth/actions";
+import useLogin from '../../../hooks/useLogin';
+import Input from '../../../components/commons/input';
+import Button from '../../../components/commons/button';
+import Br from '../../../components/commons/br';
+import {Color} from '../../../resources';
+import {login, cleanError} from '../../../state/ducks/auth/actions';
 
 const LoginHoc = (props) => {
     const hook = useLogin(props);
@@ -45,12 +46,12 @@ const Login = (props) => (
 );
 
 Login.propTypes = {
-    email: PropTypes.string,
-    password: PropTypes.string,
-    isValidForm: PropTypes.bool,
-    changeEmail: PropTypes.func,
-    changePassword: PropTypes.func,
-    signIn: PropTypes.func,
+    email: string,
+    password: string,
+    isValidForm: bool,
+    changeEmail: func,
+    changePassword: func,
+    signIn: func,
 };
 
 Login.defaultProps = {
@@ -82,9 +83,9 @@ const style = StyleSheet.create({
       padding:10,
     },
     errors:{
-    color: "#f00",
+        color: Color.red,
         fontSize: 20,
-    }
+    },
 });
 
 const mapStateToProps = (state) => ({

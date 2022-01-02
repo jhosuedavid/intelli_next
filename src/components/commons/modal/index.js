@@ -1,6 +1,6 @@
-import React from "react";
-import {Modal as ModalRN} from "react-native";
-import {bool, func, any, string} from "prop-types";
+import React from 'react';
+import {bool, func, any, string} from 'prop-types';
+import {Modal as ModalRN} from 'react-native';
 
 const Modal = (props) => (
     <ModalRN
