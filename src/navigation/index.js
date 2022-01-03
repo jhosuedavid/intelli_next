@@ -4,7 +4,8 @@ import {View, Text} from 'react-native';
 import {
     BrowserRouter as Router,
     Routes,
-    Route
+    Route,
+    Navigate
 } from 'react-router-dom';
 
 import Login from '../scenes/auth/login';
@@ -33,6 +34,10 @@ const AuthNavigation = () => (
             <Route
                 path="/login"
                 element={<Login/>}
+            />
+            <Route
+                path="*"
+                element={<Navigate to="/login" />}
             />
         </Routes>
     </Router>
@@ -76,6 +81,10 @@ const LoggedNavigation = (props) => (
                     />
                 ))
             }
+            <Route
+                path="*"
+                element={<Navigate to="/dashboard" />}
+            />
         </Routes>
     </Router>
 );
