@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {TouchableOpacity, Text, ScrollView} from 'react-native';
+import {TouchableOpacity, Text, ScrollView, Dimensions} from 'react-native';
 
 import useModules from '../../hooks/useModules';
+import useWindowSize from '../../hooks/useWindows';
 import {Color} from '../../resources';
 
 const MenuHook = (props) => {
+    useWindowSize();
     const hook = useModules(props);
-    console.log(hook);
     return <Menu {...hook} />;
 };
 
@@ -22,7 +23,12 @@ const Menu = (props) => (
             <Text>SUPER HERO</Text>
         </TouchableOpacity>
         {
-            props.menu.map((item) => (
+            props.menu
+                .filter((item) => {
+                    const isMobile = Dimensions.get('window').width <= 600;
+                    return isMobile ? item.is_render_mobile.toString() === '1' : item.is_render.toString() === '1';
+                })
+                .map((item) => (
                 <TouchableOpacity
                     key={item.id_module}
                     style={{paddingLeft: item.path.split('.').length * 15}}

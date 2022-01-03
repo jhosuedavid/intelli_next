@@ -1,4 +1,6 @@
 import types from './types';
+import authTypes from '../auth/types';
+import initialState from '../../initialState';
 
 const superHero = (state = {}, action) => {
     switch (action.type) {
@@ -10,6 +12,11 @@ const superHero = (state = {}, action) => {
                     ...action.payload,
                 },
             }
+        }
+        case authTypes.SESSION_CLOSE: {
+            return {
+                ...initialState.superHero,
+            };
         }
         default: {
             return state;

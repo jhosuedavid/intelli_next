@@ -1,4 +1,5 @@
 import types from './types';
+import initialState from '../../initialState';
 
 const auth = (state = {}, action) => {
     switch (action.type) {
@@ -22,6 +23,11 @@ const auth = (state = {}, action) => {
                 ...state,
                 error: '',
             }
+        }
+        case types.SESSION_CLOSE: {
+            return {
+                ...initialState.auth,
+            };
         }
         default: {
             return state;

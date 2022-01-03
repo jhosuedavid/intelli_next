@@ -8,6 +8,7 @@ export const apiCall = createAction(types.API_CALL);
 export const setUser = createAction(types.LOGIN);
 export const setError = createAction(types.SET_ERROR);
 export const cleanError = createAction(types.CLEAN_ERROR);
+export const sessionClose = createAction(types.SESSION_CLOSE);
 
 export const login = (data) => async (dispatch) =>
     dispatch(apiCall({
