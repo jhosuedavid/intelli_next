@@ -19,5 +19,7 @@ export const getSuperHeroes = (superHeroId) => async (dispatch) =>
     }));
 
 export default {
+    superHeroApiCall,
+    setHero,
     getSuperHeroes,
 };

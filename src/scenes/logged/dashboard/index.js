@@ -4,10 +4,12 @@ import {Text, StyleSheet, View} from 'react-native';
 import {Color} from '../../../resources';
 
 const Dashboard = () => (
-    <View style={style.container}>
-        <Text style={style.dashboard}>
-            Bienvenidos
-        </Text>
+    <View>
+        <View style={style.container}>
+            <Text style={style.dashboard}>
+                Bienvenidos
+            </Text>
+        </View>
     </View>
 );
 

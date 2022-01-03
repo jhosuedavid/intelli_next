@@ -14,14 +14,14 @@ const Modal = (props) => (
 );
 
 Modal.propTypes = {
-    isvisible: bool,
+    isVisible: bool,
     hiddenModal: func,
     children: any,
     animationType: string,
 };
 
 Modal.defaultProps = {
-    isvisible: false,
+    isVisible: false,
     hiddenModal: () => {},
     children: <></>,
     animationType: 'fade',

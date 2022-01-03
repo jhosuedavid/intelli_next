@@ -26,5 +26,7 @@ export const getDevices = (limit, offset, search) => async (dispatch) =>
     }));
 
 export default {
+    apiCall,
+    setDevices,
     getDevices,
 };

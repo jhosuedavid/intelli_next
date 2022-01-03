@@ -12,7 +12,7 @@ const useLogin = (props) => {
 
     useEffect(() => {
        if (user['token']) {
-          //window.location.href = '/devices';
+          window.location.href = '/dashboard';
        }
     }, [user]);
 

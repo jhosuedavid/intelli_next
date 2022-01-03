@@ -1,6 +1,7 @@
 import {createAction} from 'redux-actions';
 
 import types from './types';
+import {setModules} from '../modules/actions';
 import {AUTH_ENDPOINTS} from '../../../config';
 
 export const apiCall = createAction(types.API_CALL);
@@ -15,7 +16,8 @@ export const login = (data) => async (dispatch) =>
             data,
         },
         onComplete: (response) => {
-            const {user, token} = response.data;
+            const {modules, user, token} = response.data;
+            dispatch(setModules(modules));
             dispatch(
                 setUser({
                     ...user,
@@ -33,5 +35,9 @@ export const login = (data) => async (dispatch) =>
     }));
 
 export default {
+    apiCall,
+    setUser,
+    setError,
+    cleanError,
     login,
 };

@@ -7,6 +7,9 @@ const initialState = {
         devices: [],
         count: 0,
     },
+    modules: {
+        modules: [],
+    },
     superHero: {
         hero: {
             powerstats: {
