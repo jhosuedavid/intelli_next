@@ -34,6 +34,7 @@ const SuperHero = (props) => (
             </View>
 
         </Modal>
+        <Text>{props.hero.image.url}</Text>
         <View style={style.containerChildren}>
             <Image
                 style={style.image}

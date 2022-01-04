@@ -6,15 +6,15 @@ const useModules = (props) => {
     const {modules = []} = props;
 
     const findModule = (moduleId) => {
-        let m = null;
+        let module = null;
 
-        modules.some((module) => {
-            const validation = parseInt(module["id_module"]) === parseInt(moduleId);
-            m = module;
+        modules.some((moduleItem) => {
+            const validation = parseInt(moduleItem["id_module"]) === parseInt(moduleId);
+            module = moduleItem;
             return validation;
         })
 
-        return m;
+        return module;
     };
 
     const menuData = useMemo(() => {
@@ -28,7 +28,7 @@ const useModules = (props) => {
        return data;
     }, [modules]);
 
-    const v = useMemo(() => {
+    const versionsData = useMemo(() => {
         const versions = [];
 
         modules.map((module) => {
@@ -40,12 +40,13 @@ const useModules = (props) => {
 
     const menu = useMemo(() => {
         const data = [];
-        v.map((version) => {
+
+        versionsData.map((version) => {
             if (
-                menuData[version]["setting_module_config"] &&
-                menuData[version]["setting_module_config"]["route"] &&
+                menuData[version].hasOwnProperty("setting_module_config") &&
+                menuData[version].setting_module_config.hasOwnProperty("route") &&
                 (
-                    menuData[version].setting_module_config.route !== undefined ||
+                    menuData[version].setting_module_config.route !== undefined &&
                     menuData[version].setting_module_config.route !== null
                 )
             ) {

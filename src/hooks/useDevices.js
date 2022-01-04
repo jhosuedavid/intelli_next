@@ -18,14 +18,6 @@ const useDevices = (props) => {
         };
     }, [limit, page, search]);
 
-    const changeLimit = (value) => {
-        setLimit(value);
-    };
-
-    const changePage = (value) => {
-        setPage(value);
-    };
-
     const changeSearch = (value) => {
         setSearch(value);
     };
@@ -39,8 +31,6 @@ const useDevices = (props) => {
         limit,
         page,
         search,
-        changeLimit,
-        changePage,
         changeSearch,
         increaseLimit,
     };

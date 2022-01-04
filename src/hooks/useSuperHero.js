@@ -7,7 +7,7 @@ const useSuperHero = (props) => {
         let isFetch = true;
 
         if (isFetch) {
-            getSuperHeroes(1);
+            getSuperHeroes(1)
         }
 
         return () => {

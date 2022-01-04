@@ -42,6 +42,7 @@ const api = ({dispatch, getState}) => (next) => async (action) => {
         dispatch(onStart());
         const response = await axios(config);
         onComplete(response);
+        onEnd();
     } catch (error) {
         onEnd(error);
     }

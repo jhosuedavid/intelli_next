@@ -15,7 +15,7 @@ const MenuHook = (props) => {
 const Menu = (props) => (
     <ScrollView style={{backgroundColor: Color.white}}>
         <TouchableOpacity
-            style={{paddingLeft: 15}}
+            style={{paddingLeft: 15, paddingBottom: 20}}
             onPress={() => {
                 window.location.href = "/superhero"
             }}
@@ -26,19 +26,21 @@ const Menu = (props) => (
             props.menu
                 .filter((item) => {
                     const isMobile = Dimensions.get('window').width <= 600;
-                    return isMobile ? item.is_render_mobile.toString() === '1' : item.is_render.toString() === '1';
+                    return isMobile ?
+                        item.is_render_mobile.toString() === '1' :
+                        item.is_render.toString() === '1';
                 })
                 .map((item) => (
-                <TouchableOpacity
-                    key={item.id_module}
-                    style={{paddingLeft: item.path.split('.').length * 15}}
-                    onPress={() => {
-                        window.location.href = `/${item.setting_module_config.route}`
-                    }}
-                >
-                    <Text>{item.module}</Text>
-                </TouchableOpacity>
-            ))
+                    <TouchableOpacity
+                        key={item.id_module}
+                        style={{paddingLeft: item.path.split('.').length * 15}}
+                        onPress={() => {
+                            window.location.href = `/${item.setting_module_config.route}`
+                        }}
+                    >
+                        <Text>{item.module}</Text>
+                    </TouchableOpacity>
+                ))
         }
     </ScrollView>
 );

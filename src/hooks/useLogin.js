@@ -17,10 +17,10 @@ const useLogin = (props) => {
     }, [user]);
 
     useEffect(() => {
-        if (error) {
+        if (error !== '') {
             cleanError();
         }
-    }, [email, setPassword]);
+    }, [email, password]);
 
     const changeEmail = (value) => {
         setEmail(value);
